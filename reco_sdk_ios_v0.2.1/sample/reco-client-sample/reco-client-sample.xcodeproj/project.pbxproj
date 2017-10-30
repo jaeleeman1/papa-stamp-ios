@@ -1,0 +1,392 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2FBC2E4E190FDB83004B1C48 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBC2E4D190FDB83004B1C48 /* Foundation.framework */; };
+		2FBC2E50190FDB83004B1C48 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBC2E4F190FDB83004B1C48 /* CoreGraphics.framework */; };
+		2FBC2E52190FDB83004B1C48 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBC2E51190FDB83004B1C48 /* UIKit.framework */; };
+		2FBC2E58190FDB83004B1C48 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2FBC2E56190FDB83004B1C48 /* InfoPlist.strings */; };
+		2FBC2E5A190FDB83004B1C48 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FBC2E59190FDB83004B1C48 /* main.m */; };
+		2FBC2E5E190FDB83004B1C48 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FBC2E5D190FDB83004B1C48 /* AppDelegate.m */; };
+		2FBC2E61190FDB83004B1C48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FBC2E5F190FDB83004B1C48 /* Main.storyboard */; };
+		2FBC2E64190FDB83004B1C48 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FBC2E63190FDB83004B1C48 /* MainViewController.m */; };
+		2FBC2E66190FDB83004B1C48 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FBC2E65190FDB83004B1C48 /* Images.xcassets */; };
+		2FBC2E83190FDB9F004B1C48 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBC2E82190FDB9F004B1C48 /* CoreLocation.framework */; };
+		2FBC2E8A191015E7004B1C48 /* RecoDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FBC2E89191015E7004B1C48 /* RecoDefaults.m */; };
+		2FBC2E9319101802004B1C48 /* MonitoringTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FBC2E8C19101802004B1C48 /* MonitoringTableViewController.m */; };
+		2FBC2E9419101802004B1C48 /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FBC2E8E19101802004B1C48 /* NavigationViewController.m */; };
+		2FBC2E9519101802004B1C48 /* RangedBeaconViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FBC2E9019101802004B1C48 /* RangedBeaconViewController.m */; };
+		2FBC2E9619101802004B1C48 /* RangingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FBC2E9219101802004B1C48 /* RangingTableViewController.m */; };
+		909DAD0719D9191B0097E3CB /* Reco.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 909DAD0619D9191B0097E3CB /* Reco.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2FBC2E4A190FDB83004B1C48 /* RECOSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RECOSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FBC2E4D190FDB83004B1C48 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		2FBC2E4F190FDB83004B1C48 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2FBC2E51190FDB83004B1C48 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2FBC2E55190FDB83004B1C48 /* reco-client-sample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "reco-client-sample-Info.plist"; sourceTree = "<group>"; };
+		2FBC2E57190FDB83004B1C48 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2FBC2E59190FDB83004B1C48 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2FBC2E5B190FDB83004B1C48 /* reco-client-sample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "reco-client-sample-Prefix.pch"; sourceTree = "<group>"; };
+		2FBC2E5C190FDB83004B1C48 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		2FBC2E5D190FDB83004B1C48 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		2FBC2E60190FDB83004B1C48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2FBC2E62190FDB83004B1C48 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		2FBC2E63190FDB83004B1C48 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		2FBC2E65190FDB83004B1C48 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		2FBC2E82190FDB9F004B1C48 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		2FBC2E88191015E7004B1C48 /* RecoDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecoDefaults.h; sourceTree = "<group>"; };
+		2FBC2E89191015E7004B1C48 /* RecoDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecoDefaults.m; sourceTree = "<group>"; };
+		2FBC2E8B19101802004B1C48 /* MonitoringTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonitoringTableViewController.h; sourceTree = "<group>"; };
+		2FBC2E8C19101802004B1C48 /* MonitoringTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonitoringTableViewController.m; sourceTree = "<group>"; };
+		2FBC2E8D19101802004B1C48 /* NavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationViewController.h; sourceTree = "<group>"; };
+		2FBC2E8E19101802004B1C48 /* NavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationViewController.m; sourceTree = "<group>"; };
+		2FBC2E8F19101802004B1C48 /* RangedBeaconViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RangedBeaconViewController.h; sourceTree = "<group>"; };
+		2FBC2E9019101802004B1C48 /* RangedBeaconViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RangedBeaconViewController.m; sourceTree = "<group>"; };
+		2FBC2E9119101802004B1C48 /* RangingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RangingTableViewController.h; sourceTree = "<group>"; };
+		2FBC2E9219101802004B1C48 /* RangingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RangingTableViewController.m; sourceTree = "<group>"; };
+		909DAD0619D9191B0097E3CB /* Reco.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reco.framework; path = ../Reco.framework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2FBC2E47190FDB83004B1C48 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				909DAD0719D9191B0097E3CB /* Reco.framework in Frameworks */,
+				2FBC2E83190FDB9F004B1C48 /* CoreLocation.framework in Frameworks */,
+				2FBC2E50190FDB83004B1C48 /* CoreGraphics.framework in Frameworks */,
+				2FBC2E52190FDB83004B1C48 /* UIKit.framework in Frameworks */,
+				2FBC2E4E190FDB83004B1C48 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2FBC2E41190FDB83004B1C48 = {
+			isa = PBXGroup;
+			children = (
+				2FBC2E53190FDB83004B1C48 /* reco-client-sample */,
+				2FBC2E4C190FDB83004B1C48 /* Frameworks */,
+				2FBC2E4B190FDB83004B1C48 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2FBC2E4B190FDB83004B1C48 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2FBC2E4A190FDB83004B1C48 /* RECOSample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2FBC2E4C190FDB83004B1C48 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				909DAD0619D9191B0097E3CB /* Reco.framework */,
+				2FBC2E82190FDB9F004B1C48 /* CoreLocation.framework */,
+				2FBC2E4D190FDB83004B1C48 /* Foundation.framework */,
+				2FBC2E4F190FDB83004B1C48 /* CoreGraphics.framework */,
+				2FBC2E51190FDB83004B1C48 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2FBC2E53190FDB83004B1C48 /* reco-client-sample */ = {
+			isa = PBXGroup;
+			children = (
+				2FBC2E5F190FDB83004B1C48 /* Main.storyboard */,
+				2FBC2E5C190FDB83004B1C48 /* AppDelegate.h */,
+				2FBC2E5D190FDB83004B1C48 /* AppDelegate.m */,
+				2FBC2E8D19101802004B1C48 /* NavigationViewController.h */,
+				2FBC2E8E19101802004B1C48 /* NavigationViewController.m */,
+				2FBC2E62190FDB83004B1C48 /* MainViewController.h */,
+				2FBC2E63190FDB83004B1C48 /* MainViewController.m */,
+				2FBC2E88191015E7004B1C48 /* RecoDefaults.h */,
+				2FBC2E89191015E7004B1C48 /* RecoDefaults.m */,
+				2FBC2EA019104D8D004B1C48 /* Monitoring */,
+				2FBC2E9F19104D81004B1C48 /* Ranging */,
+				2FBC2E65190FDB83004B1C48 /* Images.xcassets */,
+				2FBC2E54190FDB83004B1C48 /* Supporting Files */,
+			);
+			path = "reco-client-sample";
+			sourceTree = "<group>";
+		};
+		2FBC2E54190FDB83004B1C48 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2FBC2E55190FDB83004B1C48 /* reco-client-sample-Info.plist */,
+				2FBC2E56190FDB83004B1C48 /* InfoPlist.strings */,
+				2FBC2E59190FDB83004B1C48 /* main.m */,
+				2FBC2E5B190FDB83004B1C48 /* reco-client-sample-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2FBC2E9F19104D81004B1C48 /* Ranging */ = {
+			isa = PBXGroup;
+			children = (
+				2FBC2E9119101802004B1C48 /* RangingTableViewController.h */,
+				2FBC2E9219101802004B1C48 /* RangingTableViewController.m */,
+				2FBC2E8F19101802004B1C48 /* RangedBeaconViewController.h */,
+				2FBC2E9019101802004B1C48 /* RangedBeaconViewController.m */,
+			);
+			name = Ranging;
+			sourceTree = "<group>";
+		};
+		2FBC2EA019104D8D004B1C48 /* Monitoring */ = {
+			isa = PBXGroup;
+			children = (
+				2FBC2E8B19101802004B1C48 /* MonitoringTableViewController.h */,
+				2FBC2E8C19101802004B1C48 /* MonitoringTableViewController.m */,
+			);
+			name = Monitoring;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2FBC2E49190FDB83004B1C48 /* reco-client-sample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2FBC2E7C190FDB83004B1C48 /* Build configuration list for PBXNativeTarget "reco-client-sample" */;
+			buildPhases = (
+				2FBC2E46190FDB83004B1C48 /* Sources */,
+				2FBC2E47190FDB83004B1C48 /* Frameworks */,
+				2FBC2E48190FDB83004B1C48 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "reco-client-sample";
+			productName = "yuna-client-sample";
+			productReference = 2FBC2E4A190FDB83004B1C48 /* RECOSample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2FBC2E42190FDB83004B1C48 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = Perples;
+				TargetAttributes = {
+					2FBC2E49190FDB83004B1C48 = {
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 2FBC2E45190FDB83004B1C48 /* Build configuration list for PBXProject "reco-client-sample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2FBC2E41190FDB83004B1C48;
+			productRefGroup = 2FBC2E4B190FDB83004B1C48 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2FBC2E49190FDB83004B1C48 /* reco-client-sample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2FBC2E48190FDB83004B1C48 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2FBC2E66190FDB83004B1C48 /* Images.xcassets in Resources */,
+				2FBC2E58190FDB83004B1C48 /* InfoPlist.strings in Resources */,
+				2FBC2E61190FDB83004B1C48 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2FBC2E46190FDB83004B1C48 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2FBC2E5E190FDB83004B1C48 /* AppDelegate.m in Sources */,
+				2FBC2E8A191015E7004B1C48 /* RecoDefaults.m in Sources */,
+				2FBC2E9419101802004B1C48 /* NavigationViewController.m in Sources */,
+				2FBC2E64190FDB83004B1C48 /* MainViewController.m in Sources */,
+				2FBC2E9319101802004B1C48 /* MonitoringTableViewController.m in Sources */,
+				2FBC2E9619101802004B1C48 /* RangingTableViewController.m in Sources */,
+				2FBC2E9519101802004B1C48 /* RangedBeaconViewController.m in Sources */,
+				2FBC2E5A190FDB83004B1C48 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2FBC2E56190FDB83004B1C48 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2FBC2E57190FDB83004B1C48 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2FBC2E5F190FDB83004B1C48 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2FBC2E60190FDB83004B1C48 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2FBC2E7A190FDB83004B1C48 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		2FBC2E7B190FDB83004B1C48 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2FBC2E7D190FDB83004B1C48 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					../,
+				);
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "reco-client-sample/reco-client-sample-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/reco-client-sample/reco-client-sample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PRODUCT_NAME = RECOSample;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		2FBC2E7E190FDB83004B1C48 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					../,
+				);
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "reco-client-sample/reco-client-sample-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/reco-client-sample/reco-client-sample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PRODUCT_NAME = RECOSample;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2FBC2E45190FDB83004B1C48 /* Build configuration list for PBXProject "reco-client-sample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2FBC2E7A190FDB83004B1C48 /* Debug */,
+				2FBC2E7B190FDB83004B1C48 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2FBC2E7C190FDB83004B1C48 /* Build configuration list for PBXNativeTarget "reco-client-sample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2FBC2E7D190FDB83004B1C48 /* Debug */,
+				2FBC2E7E190FDB83004B1C48 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2FBC2E42190FDB83004B1C48 /* Project object */;
+}
