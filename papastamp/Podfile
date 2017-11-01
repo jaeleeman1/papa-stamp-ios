@@ -12,6 +12,6 @@ target 'papastamp' do
     pod 'SVProgressHUD'
     pod 'SwiftyUserDefaults'
     pod 'EZAlertController'
-    
+    pod 'CryptoSwift'
     
 end

@@ -3,6 +3,7 @@ PODS:
   - AlamofireObjectMapper (5.0.0):
     - Alamofire (~> 4.1)
     - ObjectMapper (~> 3.0)
+  - CryptoSwift (0.8.0)
   - EZAlertController (3.2)
   - FCUUID (1.3.1):
     - UICKeyChainStore (~> 2.1.0)
@@ -13,6 +14,7 @@ PODS:
 
 DEPENDENCIES:
   - AlamofireObjectMapper
+  - CryptoSwift
   - EZAlertController
   - FCUUID
   - SVProgressHUD
@@ -21,6 +23,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   AlamofireObjectMapper: 5fafc816351cbbc0d486611aaeba7461c0cbad49
+  CryptoSwift: f81907430ebbe38b8404b4f6fb40f3c576a8755f
   EZAlertController: 633be01320bed47720be54054df47667d61c2481
   FCUUID: bb054fc90cd7cd99320f9f6ff8e130fe607fba05
   ObjectMapper: 92230db59bf8f341a5c3a3cf0b9fbdde3cf0d87f
@@ -28,6 +31,6 @@ SPEC CHECKSUMS:
   SwiftyUserDefaults: 0f1d45fc3aafb9064dac661e367f8f83fe21a4b4
   UICKeyChainStore: 239558492fa260531a0774cfc611ea83a6eaff3a
 
-PODFILE CHECKSUM: 064330ac4843e2d2e9fa734f547700f18ab30a67
+PODFILE CHECKSUM: 5691ba81bbcc740f2659ba9ee70dac9a3a4c7e6e
 
 COCOAPODS: 1.4.0.beta.1

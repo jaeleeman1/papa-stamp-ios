@@ -82,7 +82,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate: CLLocationManagerDelegate {
     
-    
     func locationManager(_ manager: CLLocationManager, didStartMonitoringFor region: CLRegion) {
         self.locationManager.requestState(for: self.myBeaconRegion)
         self.sendToLocalNotification("[DEBUG]", notiBody: "didStartMonitoringFor")
