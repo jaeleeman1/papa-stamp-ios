@@ -11,7 +11,7 @@ import CryptoSwift
 
 class ViewController: UIViewController {
 
-    var aseKey: String = "Glu0r6o0GzBZIe0Qsrh2FA=="
+    let aesKey: Array<UInt8> = "Glu0r6o0GzBZIe0Qsrh2FA==".bytes.md5()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,16 +27,12 @@ class ViewController: UIViewController {
 
 
     func aestest() {
-        /*
-         핸드폰 번호(pid)는 AES 알고리즘 (AES/ECB/PKCS5Padding) 사용하여 변경(uid)
-         Key 값 (Glu0r6o0GzBZIe0Qsrh2FA==)
-         Ex) 08201026181715  ==➔  9c4e059cb007a6d5065017d8f07133cd
-         */
-
-        let aes = try! AES(key: aseKey, iv: "08201026181715", padding: .pkcs5)
         
-        debugPrint()
-
+        if let aes = try? AES(key: aesKey, blockMode: .ECB, padding: .pkcs5) {
+            let encrypted = try? aes.encrypt(Array("08201026181715".utf8))
+            debugPrint(encrypted!.toHexString())
+            // 9c4e059cb007a6d5065017d8f07133cd
+        }
     }
     
 }

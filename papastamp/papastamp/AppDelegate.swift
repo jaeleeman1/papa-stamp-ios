@@ -21,19 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         self.beaconSetting()
-        // MARK: Push Setting
-        if #available(iOS 10.0, *) {
-            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-            UNUserNotificationCenter.current().requestAuthorization(
-                options: authOptions,
-                completionHandler: {_, _ in })
-        } else {
-            let settings: UIUserNotificationSettings =
-                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
-            application.registerUserNotificationSettings(settings)
-        }
+        self.apnsSetting()
         
-        application.registerForRemoteNotifications()
             
         
         return true
@@ -56,6 +45,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.myBeaconRegion.notifyOnExit = true
         self.locationManager.startMonitoring(for: self.myBeaconRegion)
 
+    }
+    
+    func apnsSetting() {
+        if #available(iOS 10.0, *) {
+            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+            UNUserNotificationCenter.current().requestAuthorization(
+                options: authOptions,
+                completionHandler: {_, _ in })
+        } else {
+            let settings: UIUserNotificationSettings =
+                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            UIApplication.shared.registerUserNotificationSettings(settings)
+        }
+        
+        UIApplication.shared.registerForRemoteNotifications()
     }
     
     func sendToLocalNotification(_ notiTitle: String, notiBody: String) {
