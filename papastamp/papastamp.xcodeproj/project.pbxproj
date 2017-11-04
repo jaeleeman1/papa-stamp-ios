@@ -17,6 +17,7 @@
 		CBF133F41FA8CDAF0060230F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBF133F31FA8CDAF0060230F /* Assets.xcassets */; };
 		CBF133F71FA8CDAF0060230F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBF133F51FA8CDAF0060230F /* LaunchScreen.storyboard */; };
 		CBF3CB521FAD9C8700BCD276 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF3CB511FAD9C8600BCD276 /* TutorialViewController.swift */; };
+		CBF3CB541FADF38D00BCD276 /* StampViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF3CB531FADF38D00BCD276 /* StampViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		CBF133F81FA8CDAF0060230F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBF133FE1FA8D14F0060230F /* papastamp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = papastamp.entitlements; sourceTree = "<group>"; };
 		CBF3CB511FAD9C8600BCD276 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
+		CBF3CB531FADF38D00BCD276 /* StampViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 				CBF133EE1FA8CDAF0060230F /* LoginViewController.swift */,
 				CB2E549D1FACE7A100EDFCD0 /* WebViewController.swift */,
 				CBF3CB511FAD9C8600BCD276 /* TutorialViewController.swift */,
+				CBF3CB531FADF38D00BCD276 /* StampViewController.swift */,
 				CB2E549B1FAC92EA00EDFCD0 /* GoogleService-Info.plist */,
 				CBF133F01FA8CDAF0060230F /* Main.storyboard */,
 				CBF133F31FA8CDAF0060230F /* Assets.xcassets */,
@@ -143,7 +146,7 @@
 								enabled = 1;
 							};
 							com.apple.Push = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -264,6 +267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBF3CB541FADF38D00BCD276 /* StampViewController.swift in Sources */,
 				CBF133EF1FA8CDAF0060230F /* LoginViewController.swift in Sources */,
 				CB2E549E1FACE7A100EDFCD0 /* WebViewController.swift in Sources */,
 				CBF3CB521FAD9C8700BCD276 /* TutorialViewController.swift in Sources */,
@@ -406,10 +410,11 @@
 			baseConfigurationReference = 5E77482517A8B08472739748 /* Pods-papastamp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = papastamp/papastamp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R39434X7J7;
 				INFOPLIST_FILE = papastamp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.subin.papastamp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -423,10 +428,11 @@
 			baseConfigurationReference = 8F6775FB4AA97AE69BB0E975 /* Pods-papastamp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = papastamp/papastamp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R39434X7J7;
 				INFOPLIST_FILE = papastamp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.subin.papastamp;
 				PRODUCT_NAME = "$(TARGET_NAME)";

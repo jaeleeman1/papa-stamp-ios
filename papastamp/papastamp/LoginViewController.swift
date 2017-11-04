@@ -69,6 +69,16 @@ class LoginViewController: UIViewController {
             EZAlertController.alert("", message: "패스워드를 확인해 주세요.")
             return
         }
+        
+        guard self.passwordTextField.text?.count > 6 == false else {
+            EZAlertController.alert("", message: "패스워드를 6자 이상 입력하세요.")
+            return
+        }
+        
+        guard self.passwordTextField.text == self.passwordConfirmTextField.text else {
+            EZAlertController.alert("", message: "패스워드를 입력값이 다릅니다.")
+            return
+        }
 
         self.userCreate()
     }

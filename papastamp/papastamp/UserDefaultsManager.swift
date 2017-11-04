@@ -10,7 +10,7 @@ import UIKit
 import SwiftyUserDefaults
 
 extension DefaultsKeys {
-//    static let uid          = DefaultsKey<String>("uid")
-    static let isTutorial   = DefaultsKey<Bool>("isTutorial")
+    static let isTutorial       = DefaultsKey<Bool>("isTutorial")
+    static let isSentBeaconPush = DefaultsKey<Bool>("isSentBeaconPush")
 }
 

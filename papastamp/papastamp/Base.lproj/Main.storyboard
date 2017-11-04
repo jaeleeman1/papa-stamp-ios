@@ -232,6 +232,51 @@
             </objects>
             <point key="canvasLocation" x="-1986.4000000000001" y="1100.5997001499252"/>
         </scene>
+        <!--Stamp View Controller-->
+        <scene sceneID="kzO-d9-SM5">
+            <objects>
+                <viewController storyboardIdentifier="StampView" id="Gif-vU-eiA" customClass="StampViewController" customModule="papastamp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="C6r-xC-eHj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t1B-IJ-QBQ">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="papastamp_icon" translatesAutoresizingMaskIntoConstraints="NO" id="7TN-AZ-oOb">
+                                <rect key="frame" x="87" y="170" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="0lF-0V-mhZ"/>
+                                    <constraint firstAttribute="width" constant="200" id="CIM-cm-SpA"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="파파 스탬프" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vdO-dl-C7f">
+                                <rect key="frame" x="30" y="120" width="100" height="26.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <color key="textColor" red="1" green="0.5032762885093689" blue="0.1499151885509491" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vdO-dl-C7f" firstAttribute="top" secondItem="jEb-Mn-Jq1" secondAttribute="top" constant="100" id="11X-YR-d1r"/>
+                            <constraint firstItem="7TN-AZ-oOb" firstAttribute="top" secondItem="t1B-IJ-QBQ" secondAttribute="top" constant="150" id="LyD-qw-xk9"/>
+                            <constraint firstItem="t1B-IJ-QBQ" firstAttribute="leading" secondItem="jEb-Mn-Jq1" secondAttribute="leading" id="UnG-sO-GNp"/>
+                            <constraint firstItem="7TN-AZ-oOb" firstAttribute="centerX" secondItem="t1B-IJ-QBQ" secondAttribute="centerX" id="ZbN-Z5-R3U"/>
+                            <constraint firstItem="jEb-Mn-Jq1" firstAttribute="bottom" secondItem="t1B-IJ-QBQ" secondAttribute="bottom" id="apL-wX-8Lz"/>
+                            <constraint firstItem="t1B-IJ-QBQ" firstAttribute="top" secondItem="jEb-Mn-Jq1" secondAttribute="top" id="ck0-Rz-UPf"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="vdO-dl-C7f" secondAttribute="trailing" constant="20" symbolic="YES" id="ojB-EQ-H5V"/>
+                            <constraint firstItem="jEb-Mn-Jq1" firstAttribute="trailing" secondItem="t1B-IJ-QBQ" secondAttribute="trailing" id="sLj-AO-Frf"/>
+                            <constraint firstItem="vdO-dl-C7f" firstAttribute="leading" secondItem="jEb-Mn-Jq1" secondAttribute="leading" constant="30" id="zYh-c2-YFq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jEb-Mn-Jq1"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y4E-Pz-cGD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1321" y="1101"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="yRI-fE-ejv">
             <objects>
@@ -269,6 +314,7 @@
                             <constraint firstItem="GOi-gr-Xdd" firstAttribute="centerX" secondItem="NcL-Rr-px9" secondAttribute="centerX" id="hI2-Kd-GvS"/>
                             <constraint firstItem="Dzo-1w-d2h" firstAttribute="top" secondItem="GOi-gr-Xdd" secondAttribute="bottom" constant="10" id="w8O-N1-hr9"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="A6v-ow-3tU"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P5s-v6-HbA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -312,6 +358,7 @@
                             <constraint firstItem="lPn-3l-gfh" firstAttribute="centerX" secondItem="XRY-b6-bHK" secondAttribute="centerX" id="QgA-Pk-rT0"/>
                             <constraint firstItem="UGd-K9-xh5" firstAttribute="top" secondItem="gci-Eg-FaD" secondAttribute="bottom" constant="10" id="Rtf-nP-JaL"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="x8G-98-O0e"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s22-Ds-XzR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -323,6 +370,7 @@
         <image name="header_papastamp_icon" width="240" height="240"/>
         <image name="papa_main" width="192" height="288"/>
         <image name="papa_text" width="115" height="68"/>
+        <image name="papastamp_icon" width="140" height="140"/>
         <image name="registration_button" width="150" height="150"/>
         <image name="stamp_action" width="240" height="240"/>
     </resources>
