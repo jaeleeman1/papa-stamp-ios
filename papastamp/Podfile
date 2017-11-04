@@ -7,11 +7,16 @@ target 'papastamp' do
 
   # Pods for papastamp
 
+    pod 'Alamofire'
     pod 'AlamofireObjectMapper'
     pod 'FCUUID'
     pod 'SVProgressHUD'
     pod 'SwiftyUserDefaults'
     pod 'EZAlertController'
     pod 'CryptoSwift'
+    pod 'SwiftyJSON'
+    
+    pod 'Firebase/Auth'
+    pod 'Firebase/Core'
     
 end

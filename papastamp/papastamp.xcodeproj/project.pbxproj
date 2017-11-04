@@ -8,25 +8,33 @@
 
 /* Begin PBXBuildFile section */
 		6213940F6F92FA92442CB06A /* Pods_papastamp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D94EA5454BD80C82E4EB816 /* Pods_papastamp.framework */; };
+		CB2E549C1FAC92EA00EDFCD0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB2E549B1FAC92EA00EDFCD0 /* GoogleService-Info.plist */; };
+		CB2E549E1FACE7A100EDFCD0 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2E549D1FACE7A100EDFCD0 /* WebViewController.swift */; };
+		CBA035731FACF2BA0002861D /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA035721FACF2BA0002861D /* UserDefaultsManager.swift */; };
 		CBF133ED1FA8CDAF0060230F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF133EC1FA8CDAF0060230F /* AppDelegate.swift */; };
-		CBF133EF1FA8CDAF0060230F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF133EE1FA8CDAF0060230F /* ViewController.swift */; };
+		CBF133EF1FA8CDAF0060230F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF133EE1FA8CDAF0060230F /* LoginViewController.swift */; };
 		CBF133F21FA8CDAF0060230F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBF133F01FA8CDAF0060230F /* Main.storyboard */; };
 		CBF133F41FA8CDAF0060230F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBF133F31FA8CDAF0060230F /* Assets.xcassets */; };
 		CBF133F71FA8CDAF0060230F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBF133F51FA8CDAF0060230F /* LaunchScreen.storyboard */; };
+		CBF3CB521FAD9C8700BCD276 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF3CB511FAD9C8600BCD276 /* TutorialViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0D94EA5454BD80C82E4EB816 /* Pods_papastamp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_papastamp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E77482517A8B08472739748 /* Pods-papastamp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-papastamp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-papastamp/Pods-papastamp.debug.xcconfig"; sourceTree = "<group>"; };
 		8F6775FB4AA97AE69BB0E975 /* Pods-papastamp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-papastamp.release.xcconfig"; path = "Pods/Target Support Files/Pods-papastamp/Pods-papastamp.release.xcconfig"; sourceTree = "<group>"; };
+		CB2E549B1FAC92EA00EDFCD0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CB2E549D1FACE7A100EDFCD0 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		CBA035721FACF2BA0002861D /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		CBF133E91FA8CDAF0060230F /* papastamp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = papastamp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBF133EC1FA8CDAF0060230F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CBF133EE1FA8CDAF0060230F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CBF133EE1FA8CDAF0060230F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CBF133F11FA8CDAF0060230F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CBF133F31FA8CDAF0060230F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CBF133F61FA8CDAF0060230F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CBF133F81FA8CDAF0060230F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBF133FE1FA8D14F0060230F /* papastamp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = papastamp.entitlements; sourceTree = "<group>"; };
+		CBF3CB511FAD9C8600BCD276 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,8 +88,12 @@
 			isa = PBXGroup;
 			children = (
 				CBF133FE1FA8D14F0060230F /* papastamp.entitlements */,
+				CBA035721FACF2BA0002861D /* UserDefaultsManager.swift */,
 				CBF133EC1FA8CDAF0060230F /* AppDelegate.swift */,
-				CBF133EE1FA8CDAF0060230F /* ViewController.swift */,
+				CBF133EE1FA8CDAF0060230F /* LoginViewController.swift */,
+				CB2E549D1FACE7A100EDFCD0 /* WebViewController.swift */,
+				CBF3CB511FAD9C8600BCD276 /* TutorialViewController.swift */,
+				CB2E549B1FAC92EA00EDFCD0 /* GoogleService-Info.plist */,
 				CBF133F01FA8CDAF0060230F /* Main.storyboard */,
 				CBF133F31FA8CDAF0060230F /* Assets.xcassets */,
 				CBF133F51FA8CDAF0060230F /* LaunchScreen.storyboard */,
@@ -161,6 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBF133F71FA8CDAF0060230F /* LaunchScreen.storyboard in Resources */,
+				CB2E549C1FAC92EA00EDFCD0 /* GoogleService-Info.plist in Resources */,
 				CBF133F41FA8CDAF0060230F /* Assets.xcassets in Resources */,
 				CBF133F21FA8CDAF0060230F /* Main.storyboard in Resources */,
 			);
@@ -181,10 +194,14 @@
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/EZAlertController/EZAlertController.framework",
 				"${BUILT_PRODUCTS_DIR}/FCUUID/FCUUID.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyUserDefaults/SwiftyUserDefaults.framework",
 				"${BUILT_PRODUCTS_DIR}/UICKeyChainStore/UICKeyChainStore.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -193,10 +210,14 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EZAlertController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FCUUID.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyUserDefaults.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UICKeyChainStore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -243,7 +264,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CBF133EF1FA8CDAF0060230F /* ViewController.swift in Sources */,
+				CBF133EF1FA8CDAF0060230F /* LoginViewController.swift in Sources */,
+				CB2E549E1FACE7A100EDFCD0 /* WebViewController.swift in Sources */,
+				CBF3CB521FAD9C8700BCD276 /* TutorialViewController.swift in Sources */,
+				CBA035731FACF2BA0002861D /* UserDefaultsManager.swift in Sources */,
 				CBF133ED1FA8CDAF0060230F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -385,9 +409,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R39434X7J7;
 				INFOPLIST_FILE = papastamp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = mycisco.com.papastamp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.subin.papastamp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -402,9 +426,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R39434X7J7;
 				INFOPLIST_FILE = papastamp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = mycisco.com.papastamp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.subin.papastamp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
