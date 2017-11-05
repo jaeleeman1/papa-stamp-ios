@@ -14,6 +14,7 @@ import Firebase
 import SwiftyUserDefaults
 import CoreLocation
 import UserNotifications
+import SVProgressHUD
 
 class WebViewController: UIViewController {
 
@@ -23,6 +24,8 @@ class WebViewController: UIViewController {
     
     var myBeaconRegion: CLBeaconRegion = CLBeaconRegion(proximityUUID: UUID(uuidString:"24ddf411-8cf1-440c-87cd-e368daf9c93e")!, identifier: "com.mycisco.beacon")
     var locationManager: CLLocationManager = CLLocationManager()
+    var isMovedMylocation: Bool = false
+    var comeInFromPush: Bool    = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +54,10 @@ class WebViewController: UIViewController {
     @IBAction func pressedStampButton(_ sender: Any) {
         self.stampButton.setTitle("중지", for: .normal)
         let viewCont: StampViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "StampView") as! StampViewController
-        viewCont.modalPresentationStyle = .overCurrentContext
+        
+//        viewCont.providesPresentationContextTransitionStyle = true
+//        viewCont.definesPresentationContext = true
+//        viewCont.modalPresentationStyle = .overCurrentContext
         self.present(viewCont, animated: true)
     }
     
@@ -78,7 +84,7 @@ class WebViewController: UIViewController {
         self.webView.loadRequest(URLRequest(url: URL(string: urlStr)!))
     }
     
-    func updateLocation(coordinate: CLLocationCoordinate2D) {
+    func updateLocation(coordinate: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 37.497912, longitude: 127.027574)) {
 
         /*
          https://whereareevent.com/map/v1.0/updateLocation (PUT)
@@ -102,17 +108,11 @@ class WebViewController: UIViewController {
         }
         request.httpBody = json!.data(using: String.Encoding.utf8.rawValue)
         Alamofire.request(request).responseJSON { response in
-            
             self.webView.reload()
-            
-//            debugPrint(response.request)
-//            debugPrint(response.response)
-//            debugPrint(response.data)
-//            debugPrint(response.result)
         }
     }
     
-    func sendToLocalNotification(_ notiTitle: String, notiBody: String, userInfo: [String:String]) {
+    func sendToLocalNotification(_ notiTitle: String, notiBody: String, userInfo: [String:String] = ["":""]) {
         debugPrint("sendToLocalNotification : \(notiBody)")
         if #available(iOS 10.0, *) {
             let content = UNMutableNotificationContent()
@@ -139,20 +139,22 @@ class WebViewController: UIViewController {
 extension WebViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let userLocation:CLLocation = locations[0] as CLLocation
-        manager.stopUpdatingLocation()
-        self.updateLocation(coordinate: userLocation.coordinate)
-        print("user latitude = \(userLocation.coordinate.latitude)")
-        print("user longitude = \(userLocation.coordinate.longitude)")
         
+        if (self.isMovedMylocation == false) {
+            let userLocation:CLLocation = locations[0] as CLLocation
+            manager.stopUpdatingLocation()
+            self.updateLocation(coordinate: userLocation.coordinate)
+            print("user latitude = \(userLocation.coordinate.latitude)")
+            print("user longitude = \(userLocation.coordinate.longitude)")
+            self.isMovedMylocation = true
+        }        
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         manager.stopUpdatingLocation()
         
         // MARK: 위치 검색 실패시 강남역 디폴트 세팅
-        let coordinate = CLLocationCoordinate2D(latitude: 37.497912, longitude: 127.027574)
-        self.updateLocation(coordinate: coordinate)
+        self.updateLocation()
     }
     
     func locationManager(_ manager: CLLocationManager, didStartMonitoringFor region: CLRegion) {
@@ -161,24 +163,31 @@ extension WebViewController: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: Error) {
+        self.locationManager.stopRangingBeacons(in: self.myBeaconRegion)
     }
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         debugPrint("didEnterRegion")
         if (CLLocationManager.isRangingAvailable()) {
-            self.locationManager.startRangingBeacons(in: self.myBeaconRegion)
+            self.sendToLocalNotification("파파스탬프", notiBody: "쿠폰 적립을 쉽고 간편하게~!!")
         }
+
+        
+        let beacon = region as! CLBeaconRegion
+        debugPrint(beacon)
     }
     
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
         debugPrint("didExitRegion")
+        self.locationManager.stopRangingBeacons(in: self.myBeaconRegion)
+
     }
     
     func locationManager(_ manager: CLLocationManager, didDetermineState state: CLRegionState, for region: CLRegion) {
         debugPrint("didDetermineState")
         if (state == .inside) {
             if (CLLocationManager.isRangingAvailable()) {
-                self.locationManager.startRangingBeacons(in: self.myBeaconRegion)
+                self.sendToLocalNotification("파파스탬프", notiBody: "쿠폰 적립을 쉽고 간편하게~!!")
             }
         } else if (state == .outside) {
             self.locationManager.stopRangingBeacons(in: self.myBeaconRegion)
@@ -191,32 +200,47 @@ extension WebViewController: CLLocationManagerDelegate {
         guard beacons.count > 0 else {
             return
         }
-        
+
         // MARK: 로그인이 안되어 있으면 비콘 신호를 무시한다.
         guard Auth.auth().currentUser?.uid.isEmpty == false else {
             return
         }
         
         let nearestBeacon = beacons.first!
+    
+        // MARK:
+        if (self.comeInFromPush == true) {
+            self.getShopBeacon(beacon: nearestBeacon)
+            self.comeInFromPush = false
+        }
+        
         // MARK: 비콘 <-> 아이폰 거리
         debugPrint("거리 \(nearestBeacon.accuracy)")
         debugPrint("RSSI \(nearestBeacon.rssi)")
-        
-        var userInfo = [String:String]()
-        userInfo["minor"]   = nearestBeacon.minor.stringValue
-        userInfo["major"]   = nearestBeacon.major.stringValue
 
-        
-        if (UIApplication.shared.applicationState != .active &&
-            Defaults[.isSentBeaconPush] == true) {
-            
-        } else {
-            self.sendToLocalNotification("파파스탬프", notiBody: "쿠폰 적립을 쉽고 간편하게~!!", userInfo: userInfo)
-            Defaults[.isSentBeaconPush] = false
-        }
+//        let nearestBeacon = beacons.first!
+
+//
+//        var userInfo = [String:String]()
+//        userInfo["minor"]   = nearestBeacon.minor.stringValue
+//        userInfo["major"]   = nearestBeacon.major.stringValue
+//
+//
+//        if (UIApplication.shared.applicationState != .active &&
+//            Defaults[.isSentBeaconPush] == true) {
+//
+//        } else {
+//            self.sendToLocalNotification("파파스탬프", notiBody: "쿠폰 적립을 쉽고 간편하게~!!", userInfo: userInfo)
+//            Defaults[.isSentBeaconPush] = false
+//        }
     }
     
-    func getShopBeacon(userInfo: [AnyHashable : Any]){
+    func startRangingBeacon(){
+        self.locationManager.startRangingBeacons(in: self.myBeaconRegion)
+    }
+    
+    
+    func getShopBeacon(beacon: CLBeacon){
         /*
          https://whereareevent.com/shop/v1.0/shopBeacon (GET)
          Parameter : ~/shopBeacon/:major/:minor
@@ -224,14 +248,20 @@ extension WebViewController: CLLocationManagerDelegate {
          푸쉬 클릭 시전달된 shopId 와 login에서 생성된 uid를 가지고 웹뷰 페이지 호출(https://whereareevent.com/shop/v1.0/shopInfo/SB-SHOP-00001/9c4e059cb007a6d5065017d8f07133cd)
          */
         
-        let urlStr = "https://whereareevent.com/shop/v1.0/shopBeacon/\(userInfo["major"]!)/\(userInfo["minor"]!)"
+        
+        let minor   = beacon.minor.stringValue
+        let major   = beacon.major.stringValue
+        
+        let urlStr = "https://whereareevent.com/shop/v1.0/shopBeacon/\(major)/\(minor)"
         debugPrint(urlStr)
+        
+        SVProgressHUD.show()
         Alamofire.request(urlStr, method: .get).responseJSON { (response) in
-            
+            SVProgressHUD.dismiss()
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                debugPrint(json["shopId"])
+                debugPrint("shopBeacon \(json["shopId"])")
                 
                 /*
                  {

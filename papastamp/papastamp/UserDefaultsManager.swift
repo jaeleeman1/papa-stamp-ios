@@ -11,6 +11,6 @@ import SwiftyUserDefaults
 
 extension DefaultsKeys {
     static let isTutorial       = DefaultsKey<Bool>("isTutorial")
-    static let isSentBeaconPush = DefaultsKey<Bool>("isSentBeaconPush")
+//    static let isSentBeaconPush = DefaultsKey<Bool>("isSentBeaconPush")
 }
 

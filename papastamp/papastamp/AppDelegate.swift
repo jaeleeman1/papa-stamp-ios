@@ -67,7 +67,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
-        Defaults[.isSentBeaconPush] = false
+//        Defaults[.isSentBeaconPush] = false
     }
     
     func apnsSetting() {
@@ -94,9 +94,16 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 willPresent notification: UNNotification,
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        let userInfo = notification.request.content.userInfo
+//        let userInfo = notification.request.content.userInfo
         
 
+        EZAlertController.alert("비콘발견", message: "비콘 발견", buttons: ["이동","취소"]) { (action, index) in
+            
+            if (index == 0) {
+                self.goToWebViewControllerWithStartBeacon()
+            }
+        }
+        
         
         completionHandler([])
     }
@@ -105,13 +112,18 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 didReceive response: UNNotificationResponse,
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
-        let userInfo = response.notification.request.content.userInfo
-        
+//        let userInfo = response.notification.request.content.userInfo
+        self.goToWebViewControllerWithStartBeacon()
+        completionHandler()
+    }
+    
+    func goToWebViewControllerWithStartBeacon() {
         var topController = UIApplication.shared.keyWindow?.rootViewController
         
-
+        
         if (topController is WebViewController) {
-            (topController as! WebViewController).getShopBeacon(userInfo: userInfo)
+            (topController as! WebViewController).startRangingBeacon()
+            (topController as! WebViewController).comeInFromPush = true
             return
         }
         
@@ -119,12 +131,11 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
             topController = topController?.presentedViewController
             
             if topController is WebViewController {
-                (topController as! WebViewController).getShopBeacon(userInfo: userInfo)
+                (topController as! WebViewController).startRangingBeacon()
+                (topController as! WebViewController).comeInFromPush = true
                 return
             }
         }
-        
-        completionHandler()
     }
 }
 
