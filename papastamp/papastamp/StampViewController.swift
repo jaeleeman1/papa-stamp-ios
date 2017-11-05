@@ -15,8 +15,22 @@ protocol StampViewControllerDelegate {
 class StampViewController: UIViewController {
 
     var delegate: StampViewControllerDelegate?
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        let time = DispatchTime.now() + .seconds(10)
+        DispatchQueue.main.asyncAfter(deadline: time) {
+            self.delegate?.dismissController(cont: self)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    deinit {
+//        DispatchQueue.main
     }
 
     override func didReceiveMemoryWarning() {
