@@ -17,7 +17,7 @@ import UserNotifications
 import SVProgressHUD
 
 class WebViewController: UIViewController {
-
+    
     @IBOutlet weak var stampButtonHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var stampButton: UIButton!
@@ -34,7 +34,7 @@ class WebViewController: UIViewController {
         self.beaconSetting()
         self.webViewLoad()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -49,15 +49,17 @@ class WebViewController: UIViewController {
     func stampViewShow() {
         self.stampButtonHeightConstraint.constant = 50
         self.stampButton.isHidden = false
+        self.stampButton.setTitle("스탬프요청", for: .normal)
     }
-
+    
     @IBAction func pressedStampButton(_ sender: Any) {
         self.stampButton.setTitle("중지", for: .normal)
         let viewCont: StampViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "StampView") as! StampViewController
+        viewCont.delegate = self
         
-//        viewCont.providesPresentationContextTransitionStyle = true
-//        viewCont.definesPresentationContext = true
-//        viewCont.modalPresentationStyle = .overCurrentContext
+        viewCont.providesPresentationContextTransitionStyle = true
+        viewCont.definesPresentationContext = true
+        viewCont.modalPresentationStyle = .overCurrentContext
         self.present(viewCont, animated: true)
     }
     
@@ -85,17 +87,17 @@ class WebViewController: UIViewController {
     }
     
     func updateLocation(coordinate: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 37.497912, longitude: 127.027574)) {
-
+        
         /*
          https://whereareevent.com/map/v1.0/updateLocation (PUT)
          Header (Content-Type: application/json) – key : user_id / value : uid
          Body - key : latitude / value : latitude, key : longitude / value : longitude
          */
-
+        
         let uid: String = (Auth.auth().currentUser?.uid)!
         let headers = ["user_id" : uid,
                        "Content-Type" : "application/json"]
-
+        
         let parameters = ["latitude": coordinate.latitude,
                           "longitude": coordinate.longitude]
         
@@ -171,7 +173,7 @@ extension WebViewController: CLLocationManagerDelegate {
         if (CLLocationManager.isRangingAvailable()) {
             self.sendToLocalNotification("파파스탬프", notiBody: "쿠폰 적립을 쉽고 간편하게~!!")
         }
-
+        
         
         let beacon = region as! CLBeaconRegion
         debugPrint(beacon)
@@ -180,7 +182,7 @@ extension WebViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
         debugPrint("didExitRegion")
         self.locationManager.stopRangingBeacons(in: self.myBeaconRegion)
-
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didDetermineState state: CLRegionState, for region: CLRegion) {
@@ -200,14 +202,14 @@ extension WebViewController: CLLocationManagerDelegate {
         guard beacons.count > 0 else {
             return
         }
-
+        
         // MARK: 로그인이 안되어 있으면 비콘 신호를 무시한다.
         guard Auth.auth().currentUser?.uid.isEmpty == false else {
             return
         }
         
         let nearestBeacon = beacons.first!
-    
+        
         // MARK:
         if (self.comeInFromPush == true) {
             self.getShopBeacon(beacon: nearestBeacon)
@@ -217,22 +219,22 @@ extension WebViewController: CLLocationManagerDelegate {
         // MARK: 비콘 <-> 아이폰 거리
         debugPrint("거리 \(nearestBeacon.accuracy)")
         debugPrint("RSSI \(nearestBeacon.rssi)")
-
-//        let nearestBeacon = beacons.first!
-
-//
-//        var userInfo = [String:String]()
-//        userInfo["minor"]   = nearestBeacon.minor.stringValue
-//        userInfo["major"]   = nearestBeacon.major.stringValue
-//
-//
-//        if (UIApplication.shared.applicationState != .active &&
-//            Defaults[.isSentBeaconPush] == true) {
-//
-//        } else {
-//            self.sendToLocalNotification("파파스탬프", notiBody: "쿠폰 적립을 쉽고 간편하게~!!", userInfo: userInfo)
-//            Defaults[.isSentBeaconPush] = false
-//        }
+        
+        //        let nearestBeacon = beacons.first!
+        
+        //
+        //        var userInfo = [String:String]()
+        //        userInfo["minor"]   = nearestBeacon.minor.stringValue
+        //        userInfo["major"]   = nearestBeacon.major.stringValue
+        //
+        //
+        //        if (UIApplication.shared.applicationState != .active &&
+        //            Defaults[.isSentBeaconPush] == true) {
+        //
+        //        } else {
+        //            self.sendToLocalNotification("파파스탬프", notiBody: "쿠폰 적립을 쉽고 간편하게~!!", userInfo: userInfo)
+        //            Defaults[.isSentBeaconPush] = false
+        //        }
     }
     
     func startRangingBeacon(){
@@ -278,3 +280,9 @@ extension WebViewController: CLLocationManagerDelegate {
     }
 }
 
+extension WebViewController: StampViewControllerDelegate {
+    func dismissController(cont: StampViewController) {
+        cont.dismiss(animated: true)
+        self.stampViewShow()
+    }
+}

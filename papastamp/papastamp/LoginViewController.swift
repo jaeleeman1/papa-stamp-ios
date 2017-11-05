@@ -19,7 +19,6 @@ class LoginViewController: UIViewController {
 
     let aesKey: Array<UInt8> = "Glu0r6o0GzBZIe0Qsrh2FA==".bytes.md5()
     
-    
     @IBOutlet weak var phonNumberTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -46,10 +45,6 @@ class LoginViewController: UIViewController {
     
     @IBAction func pressedConfirmButton(_ sender: Any) {
 
-        // MARK: 082 체크
-        
-        
-        
         guard self.phonNumberTextField.text?.isEmpty == false else {
             EZAlertController.alert("", message: "폰 번호를 입력하세요.")
             return
@@ -57,6 +52,11 @@ class LoginViewController: UIViewController {
         
         guard self.emailTextField.text?.isEmpty == false else {
             EZAlertController.alert("", message: "이메일을 입력하세요.")
+            return
+        }
+        
+        guard self.emailTextField.text?.isEmail == true else {
+            EZAlertController.alert("", message: "이메일을 형식이 아닙니다.")
             return
         }
         
@@ -70,13 +70,13 @@ class LoginViewController: UIViewController {
             return
         }
         
-//        guard self.passwordTextField.text?.count  else {
-//            EZAlertController.alert("", message: "패스워드를 6자 이상 입력하세요.")
-//            return
-//        }
-        
         guard self.passwordTextField.text == self.passwordConfirmTextField.text else {
             EZAlertController.alert("", message: "패스워드를 입력값이 다릅니다.")
+            return
+        }
+        
+        guard (self.passwordTextField.text?.count)! < 6  else {
+            EZAlertController.alert("", message: "패스워드를 6자 이상 입력하세요.")
             return
         }
 
@@ -132,6 +132,19 @@ class LoginViewController: UIViewController {
     func userUpdateFirebase() {
         Auth.auth().currentUser?.updateEmail(to: self.emailTextField.text!)
         Auth.auth().currentUser?.updatePassword(to: self.passwordTextField.text!)
+    }
+}
+
+extension LoginViewController: UITextFieldDelegate {
+    
+    
+}
+
+extension String {
+    var isEmail: Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: self)
     }
 }
 
