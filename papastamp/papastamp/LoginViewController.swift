@@ -24,10 +24,37 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var passwordConfirmTextField: UITextField!
     
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)!
+        registerForNotifications()
+    }
+
+    private func registerForNotifications() {
+        let notificationName = Notification.Name.UITextFieldTextDidChange
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.textDidChange),
+            name: notificationName,
+            object: nil)
+        
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
+    @objc func textDidChange() {
+        if (self.passwordTextField.text! == self.passwordConfirmTextField.text!) {
+            self.passwordConfirmTextField.textColor = UIColor.black
+        } else {
+            self.passwordConfirmTextField.textColor = UIColor.red
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -75,7 +102,7 @@ class LoginViewController: UIViewController {
             return
         }
         
-        guard (self.passwordTextField.text?.count)! < 6  else {
+        guard (self.passwordTextField.text?.count)! > 6  else {
             EZAlertController.alert("", message: "패스워드를 6자 이상 입력하세요.")
             return
         }
@@ -135,10 +162,29 @@ class LoginViewController: UIViewController {
     }
 }
 
-extension LoginViewController: UITextFieldDelegate {
-    
-    
-}
+//extension LoginViewController: UITextFieldDelegate {
+//
+//    func textFieldDidEndEditing(_ textField: UITextField) {
+//
+//    }
+//
+//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//
+////        debugPrint(self.passwordTextField.text)
+////        debugPrint(self.passwordConfirmTextField.text)
+////
+//        let confirmText: String = "\(self.passwordConfirmTextField.text!)\(string)"
+//
+//        if (confirmText == self.passwordTextField.text) {
+//            self.passwordConfirmTextField.textColor = UIColor.black
+//        } else {
+//            self.passwordConfirmTextField.textColor = UIColor.red
+//        }
+//
+//
+//        return true
+//    }
+//}
 
 extension String {
     var isEmail: Bool {
