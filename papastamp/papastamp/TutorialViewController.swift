@@ -28,7 +28,7 @@ class TutorialViewController: UIViewController {
         
         let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
         debugPrint(Auth.auth().currentUser?.uid)
-        if (Auth.auth().currentUser?.uid.isEmpty == true) {
+        if (Auth.auth().currentUser?.uid == nil) {
             appDelegate.moveMainViewController()
         } else {
             appDelegate.moveWebViewController()

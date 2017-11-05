@@ -102,10 +102,13 @@ class WebViewController: UIViewController {
         }
         request.httpBody = json!.data(using: String.Encoding.utf8.rawValue)
         Alamofire.request(request).responseJSON { response in
-            debugPrint(response.request)
-            debugPrint(response.response)
-            debugPrint(response.data)
-            debugPrint(response.result)
+            
+            self.webView.reload()
+            
+//            debugPrint(response.request)
+//            debugPrint(response.response)
+//            debugPrint(response.data)
+//            debugPrint(response.result)
         }
     }
     
