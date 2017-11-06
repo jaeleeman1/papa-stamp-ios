@@ -19,6 +19,7 @@ class StampViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
+        // 10초 타이머
         let time = DispatchTime.now() + .seconds(10)
         DispatchQueue.main.asyncAfter(deadline: time) {
             self.delegate?.dismissController(cont: self)
@@ -27,6 +28,10 @@ class StampViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    @IBAction func pressedCloseButton(_ sender: Any) {
+        self.delegate?.dismissController(cont: self)
     }
     
     deinit {
@@ -39,7 +44,7 @@ class StampViewController: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.delegate?.dismissController(cont: self)
+//        self.delegate?.dismissController(cont: self)
     }
     
     override var prefersStatusBarHidden: Bool {

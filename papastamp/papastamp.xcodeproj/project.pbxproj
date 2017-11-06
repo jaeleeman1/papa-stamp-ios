@@ -18,6 +18,7 @@
 		CBF133F71FA8CDAF0060230F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBF133F51FA8CDAF0060230F /* LaunchScreen.storyboard */; };
 		CBF3CB521FAD9C8700BCD276 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF3CB511FAD9C8600BCD276 /* TutorialViewController.swift */; };
 		CBF3CB541FADF38D00BCD276 /* StampViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF3CB531FADF38D00BCD276 /* StampViewController.swift */; };
+		CBFFC66F1FB079B60066EB5C /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFFC66E1FB079B60066EB5C /* Test.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		CBF133FE1FA8D14F0060230F /* papastamp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = papastamp.entitlements; sourceTree = "<group>"; };
 		CBF3CB511FAD9C8600BCD276 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		CBF3CB531FADF38D00BCD276 /* StampViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampViewController.swift; sourceTree = "<group>"; };
+		CBFFC66E1FB079B60066EB5C /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				CBF133F31FA8CDAF0060230F /* Assets.xcassets */,
 				CBF133F51FA8CDAF0060230F /* LaunchScreen.storyboard */,
 				CBF133F81FA8CDAF0060230F /* Info.plist */,
+				CBFFC66E1FB079B60066EB5C /* Test.swift */,
 			);
 			path = papastamp;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				CBF3CB541FADF38D00BCD276 /* StampViewController.swift in Sources */,
 				CBF133EF1FA8CDAF0060230F /* LoginViewController.swift in Sources */,
 				CB2E549E1FACE7A100EDFCD0 /* WebViewController.swift in Sources */,
+				CBFFC66F1FB079B60066EB5C /* Test.swift in Sources */,
 				CBF3CB521FAD9C8700BCD276 /* TutorialViewController.swift in Sources */,
 				CBA035731FACF2BA0002861D /* UserDefaultsManager.swift in Sources */,
 				CBF133ED1FA8CDAF0060230F /* AppDelegate.swift in Sources */,

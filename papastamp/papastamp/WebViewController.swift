@@ -61,6 +61,7 @@ class WebViewController: UIViewController {
         viewCont.definesPresentationContext = true
         viewCont.modalPresentationStyle = .overCurrentContext
         self.present(viewCont, animated: true)
+        self.locationManager.requestState(for: self.myBeaconRegion)
     }
     
     func beaconSetting() {
@@ -68,7 +69,9 @@ class WebViewController: UIViewController {
         self.locationManager.requestAlwaysAuthorization()
         self.myBeaconRegion.notifyOnEntry = true
         self.myBeaconRegion.notifyOnExit = true
+        
         self.locationManager.startMonitoring(for: self.myBeaconRegion)
+        
         self.locationManager.startUpdatingLocation()
     }
     
@@ -170,13 +173,17 @@ extension WebViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         debugPrint("didEnterRegion")
-        if (CLLocationManager.isRangingAvailable()) {
-            self.sendToLocalNotification("파파스탬프", notiBody: "쿠폰 적립을 쉽고 간편하게~!!")
+        // MARK: 스탬프 컨트롤러가 최상단에 있는 경우 사용하지 않음.
+        var topController = UIApplication.shared.keyWindow?.rootViewController
+        while (topController?.presentedViewController != nil) {
+            topController = topController?.presentedViewController
+            
+            if (topController is StampViewController) {
+                
+            } else {
+                self.sendToLocalNotification("파파스탬프", notiBody: "쿠폰 적립을 쉽고 간편하게~!!")
+            }
         }
-        
-        
-        let beacon = region as! CLBeaconRegion
-        debugPrint(beacon)
     }
     
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
@@ -188,8 +195,17 @@ extension WebViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didDetermineState state: CLRegionState, for region: CLRegion) {
         debugPrint("didDetermineState")
         if (state == .inside) {
-            if (CLLocationManager.isRangingAvailable()) {
-                self.sendToLocalNotification("파파스탬프", notiBody: "쿠폰 적립을 쉽고 간편하게~!!")
+
+            // MARK: 스탬프 컨트롤러가 최상단에 있는 경우 사용하지 않음.
+            var topController = UIApplication.shared.keyWindow?.rootViewController
+            while (topController?.presentedViewController != nil) {
+                topController = topController?.presentedViewController
+                
+                if (topController is StampViewController) {
+                    
+                } else {
+                    self.sendToLocalNotification("파파스탬프", notiBody: "쿠폰 적립을 쉽고 간편하게~!!")
+                }
             }
         } else if (state == .outside) {
             self.locationManager.stopRangingBeacons(in: self.myBeaconRegion)
@@ -214,7 +230,9 @@ extension WebViewController: CLLocationManagerDelegate {
         if (self.comeInFromPush == true) {
             self.getShopBeacon(beacon: nearestBeacon)
             self.comeInFromPush = false
+            self.locationManager.stopRangingBeacons(in: self.myBeaconRegion)
         }
+        
         
         // MARK: 비콘 <-> 아이폰 거리
         debugPrint("거리 \(nearestBeacon.accuracy)")
@@ -258,6 +276,8 @@ extension WebViewController: CLLocationManagerDelegate {
         debugPrint(urlStr)
         
         SVProgressHUD.show()
+        
+        
         Alamofire.request(urlStr, method: .get).responseJSON { (response) in
             SVProgressHUD.dismiss()
             switch response.result {
@@ -284,5 +304,6 @@ extension WebViewController: StampViewControllerDelegate {
     func dismissController(cont: StampViewController) {
         cont.dismiss(animated: true)
         self.stampViewShow()
+        self.locationManager.stopRangingBeacons(in: self.myBeaconRegion)
     }
 }

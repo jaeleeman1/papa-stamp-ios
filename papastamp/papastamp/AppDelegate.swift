@@ -46,21 +46,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         // MARK: Test Login View
-        self.moveMainViewController()
+        // 로그인 테스트할 때 이부분 주석제거
+//        self.moveMainViewController()
         
+        // 로그인 테스트할 때 이부분 주석
         // MARK: Tutorial
-//        if (Defaults[.isTutorial] == true ||
-//            !Defaults.hasKey(.isTutorial)) {
-//            self.moveTutorialViewController()
-//            Defaults[.isTutorial] = false
-//        } else {
-//            // MARK: 로그인 유저 구분
-//            if (Auth.auth().currentUser?.uid == nil) {
-//                self.moveMainViewController()
-//            } else {
-//                self.moveWebViewController()
-//            }
-//        }
+        if (Defaults[.isTutorial] == true ||
+            !Defaults.hasKey(.isTutorial)) {
+            self.moveTutorialViewController()
+            Defaults[.isTutorial] = false
+        } else {
+            // MARK: 로그인 유저 구분
+            if (Auth.auth().currentUser?.uid == nil) {
+                self.moveMainViewController()
+            } else {
+                self.moveWebViewController()
+            }
+        }
+        // 여기까지 주석
         
         return true
     }

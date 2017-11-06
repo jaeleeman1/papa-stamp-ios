@@ -242,7 +242,28 @@
                         <subviews>
                             <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t1B-IJ-QBQ">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DfZ-Uo-8xg">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                        <color key="backgroundColor" red="0.94901960780000005" green="0.3913504464" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="MZ5-Uf-kWq"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                        <state key="normal" title="중지">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="pressedCloseButton:" destination="Gif-vU-eiA" eventType="touchUpInside" id="Hzo-fd-FsF"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="DfZ-Uo-8xg" firstAttribute="leading" secondItem="t1B-IJ-QBQ" secondAttribute="leading" id="dec-j3-zyI"/>
+                                    <constraint firstItem="DfZ-Uo-8xg" firstAttribute="top" secondItem="t1B-IJ-QBQ" secondAttribute="top" id="hkf-Tp-t0W"/>
+                                    <constraint firstAttribute="trailing" secondItem="DfZ-Uo-8xg" secondAttribute="trailing" id="hn5-on-bbl"/>
+                                </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="papastamp_icon" translatesAutoresizingMaskIntoConstraints="NO" id="7TN-AZ-oOb">
                                 <rect key="frame" x="87" y="170" width="200" height="200"/>
