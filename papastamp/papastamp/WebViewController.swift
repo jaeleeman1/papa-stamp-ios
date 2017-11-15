@@ -143,6 +143,30 @@ class WebViewController: UIViewController {
 
 extension WebViewController: CLLocationManagerDelegate {
     
+    func localNotification() {
+        
+        // MARK: 스탬프 컨트롤러가 최상단에 있는 경우 사용하지 않음.
+        var topController = UIApplication.shared.keyWindow?.rootViewController
+        if (topController is StampViewController) {
+            return
+        } else {
+            self.sendToLocalNotification("파파스탬프", notiBody: "쿠폰 적립을 쉽고 간편하게~!!")
+        }
+        
+//        while (topController?.presentedViewController != nil) {
+//            topController = topController?.presentedViewController
+//
+//            if (topController is StampViewController) {
+//
+//            } else {
+//
+//            }
+//        }
+        
+        
+        
+    }
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         if (self.isMovedMylocation == false) {
@@ -173,17 +197,7 @@ extension WebViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         debugPrint("didEnterRegion")
-        // MARK: 스탬프 컨트롤러가 최상단에 있는 경우 사용하지 않음.
-        var topController = UIApplication.shared.keyWindow?.rootViewController
-        while (topController?.presentedViewController != nil) {
-            topController = topController?.presentedViewController
-            
-            if (topController is StampViewController) {
-                
-            } else {
-                self.sendToLocalNotification("파파스탬프", notiBody: "쿠폰 적립을 쉽고 간편하게~!!")
-            }
-        }
+        self.localNotification()
     }
     
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
@@ -195,18 +209,7 @@ extension WebViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didDetermineState state: CLRegionState, for region: CLRegion) {
         debugPrint("didDetermineState")
         if (state == .inside) {
-
-            // MARK: 스탬프 컨트롤러가 최상단에 있는 경우 사용하지 않음.
-            var topController = UIApplication.shared.keyWindow?.rootViewController
-            while (topController?.presentedViewController != nil) {
-                topController = topController?.presentedViewController
-                
-                if (topController is StampViewController) {
-                    
-                } else {
-                    self.sendToLocalNotification("파파스탬프", notiBody: "쿠폰 적립을 쉽고 간편하게~!!")
-                }
-            }
+            self.localNotification()
         } else if (state == .outside) {
             self.locationManager.stopRangingBeacons(in: self.myBeaconRegion)
         } else {
